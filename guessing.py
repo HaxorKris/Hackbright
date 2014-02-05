@@ -1,5 +1,5 @@
-
-numberToGuess = 61
+import random
+numberToGuess = random.randrange(2,101)
 
 print "Howdy, what's your name?"
 
