@@ -1,17 +1,22 @@
 import random
 numberToGuess = random.randrange(2,101)
 
-print "Howdy, what's your name?"
 
-name = raw_input ("(type in your name )")
+def GiveMeARealName():
 
-# if
-# 
-# else 
-  #   print "This does not appear to be a name! Please try again using the alphabet."
+    print "Howdy, what's your name?"
+    while True:
+        name = str(raw_input ("(type in your name) "))
+        if name.isalpha():
+            print "%s, I'm thinking of a number between 1 and 100. Try to guess my number." % name
+            return False
+        else:
+            print "This does not appear to be a name! Please try again using the alphabet."
+                
+        
 
+GiveMeARealName()
 
-print "%s, I'm thinking of a number between 1 and 100. Try to guess my number." % name
 
 def TimeToGuess():
     
