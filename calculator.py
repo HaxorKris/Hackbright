@@ -1,4 +1,4 @@
-user_input = []
+
 print " "
 print "         Ex03 Calculator"
 print " "
@@ -15,4 +15,8 @@ print "     modulo (mod num1 num2)"
 print "========= type 'q' to quit =========="
 print "  "
 
-user_input = input("Calculator > ")
+user_input = raw_input("Calculator > ")   # prompt the user 
+calculation = user_input.split(" ")   # split the single string into 3 elements
+print calculation[0]
+print calculation[1] # checkpoint charlie -- does my string split work?
+print calculation[2]
