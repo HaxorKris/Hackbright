@@ -2,16 +2,23 @@
 twain = open("twain.txt")
 
 text = twain.read() # gives a giant string
-words = text.split()
-#print words
+
+lower_case = text.lower()
+#stripped_words = lower_case.strip(",")
+# "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{}|~"
+words = lower_case.split()
+
+# words = split_words.lower()
+# print words
 
 dictionary = {}  # start an empty dictionary
 
 for k in words:
-    if dictionary.get(k):
-        dictionary[k] += 1
+    q = k.strip("!\"#$%&'()*+,-./:;<=>?@[\\]^_`{}|~")
+    if dictionary.get(q):
+        dictionary[q] += 1
     else:
-        dictionary[k] = 1
+        dictionary[q] = 1
 print dictionary
     
 
