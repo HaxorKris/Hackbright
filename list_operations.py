@@ -19,68 +19,77 @@ test_list_operations.py for concrete examples of the expected function behavior.
 """
 
 def head(input_list):
+
     """Return the first element of the input list."""
-    pass
+    return input_list[0]
 
 def tail(input_list):
     """Return all elements of the input list except the first."""
-    pass
+    return input_list[1:]
 
 def last(input_list):
     """Return the last element of the input list."""
-    pass
+    return input_list[-1]
 
 def init(input_list):
     """Return all elements of the input list except the last."""
-    pass
+    return input_list[0:-1]
 
 def first_three(input_list):
     """Return the first three elements of the input list."""
-    pass
+    return input_list[0:3]
 
 def last_five(input_list):
     """Return the last five elements of the input list."""
-    pass
+    return input_list[-5:]
 
 def middle(input_list):
     """Return all elements of the input list except the first two and the last
     two.
     """
-    pass
+    return input_list[2:-2]
 
 def inner_four(input_list):
     """Return the third, fourth, fifth, and sixth elements of the input list."""
-    pass
+    return input_list[2:6]
 
 def inner_four_end(input_list):
     """Return the sixth, fifth, fourth, and third elements from the end of the
     list, in that order.
     """
-    pass
+    return input_list[-6:-2]
 
 def replace_head(input_list):
     """Replace the head of the input list with the value 42."""
-    pass
+    input_list[0] = 42
+    return input_list[:]
 
 def replace_third_and_last(input_list):
     """Replace the third and last elements of the input list with the value 37."""
-    pass
+    input_list[2] = 37
+    input_list[-1] = 37
+    return input_list
 
 def replace_middle(input_list):
     """Replace all elements of the input list with the the values 42 and 37, in
     that order, except for the first two and last two elements.
     """
-    pass
+    input_list[2:-2]= [42, 37]
+    return input_list
 
 def delete_third_and_seventh(input_list):
     """Remove the third and seventh elements of the input list."""
-    pass
+    del input_list[2]
+    del input_list[5]
+    return input_list
+
 
 def delete_middle(input_list):
     """Remove all elements from the input list except for the first two and the
     last two.
     """
-    pass
+    del input_list[2:-2]
+    return input_list
 
 """
 Part 2: Derived operations on lists
@@ -105,40 +114,35 @@ def custom_len(input_list):
         counter += 1
     return counter
 
-## 24 errors left ##
-
 # For the next four functions, get clever using slice operations described in the first half
 def custom_append(input_list, value):
     """custom_append(input_list, value) imitates input_list.append(value)"""
     input_list[:] = input_list + [value]  # converts to a list
 
-## 23 errors left ##
-
 def custom_extend(input_list, values):
     """custom_extend(input_list, values) imitates input_list.extend(values)"""
     input_list[:] = input_list + values
 
-## 22 errors left ##
-
+# review below with Liz -- had to wrap value in [] to get the test to pass
 def custom_insert(input_list, index, value):
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    input_list[index:index] = [value]  # had to wrap value in [] to get the test to pass
+    input_list[index:index] = [value]  # had to wrap 
 
-## 21 failures left ##    
+## 7 failures left ##    
+
+#def custom_remove(input_list, value):
+#   """custom_remove(input_list, value) imitates input_list.remove(value)"""
+#    rm_counter = 0
+#    if input_list[rm_counter] == value
+#        del input_list[rm_counter]
+#        # and find a way to quit
+#    else rm_counter += 1
 
 def custom_remove(input_list, value):
-   """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    rm_counter = 0
-    if input_list[rm_counter] == value
-        del input_list[rm_counter]
-        # and find a way to quit
-    else rm_counter += 1
-
-# def custom_remove(input_list, value):
- #   """custom_remove(input_list, value) imitates input_list.remove(value)"""
- #   pass
+    """custom_remove(input_list, value) imitates input_list.remove(value)"""
+    pass
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
