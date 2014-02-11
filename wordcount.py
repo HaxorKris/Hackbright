@@ -21,20 +21,34 @@ for i in words:
 
 #key = []
 
-for key in sorted(dictionary.iterkeys()):
-    print "%r: %r" % (key, dictionary[key])
+#for key in sorted(dictionary.iterkeys()):
+#    print "%r: %r" % (key, dictionary[key])
 
 index_dictionary = {}
 
-for key, value in dictionary.iteritems():
-    index_dictionary[value] = [key]
+#for key, value in dictionary.iteritems():
+    #index_dictionary[value] = [key]
     
-for key, value in index_dictionary.iteritems():
-    print key, value
+for word, frequency in dictionary.iteritems():
 
-    #key.append(k)
+    #index_dictionary[value] = [key]
+    # if the value of the pair from dictionary exists as a key in index_dictionary
+    if index_dictionary.get(frequency):
+        # append word to frequency
+        index_dictionary[frequency].append(word) 
+    else:  
+        # add new frequency/word as a list
+        index_dictionary[frequency] = [word]
+#for k, v in index_dictionary.iteritems():
+#     print k, v 
 
-#print key
+# sorted_dict = sorted(index_dictionary)  # creates a list of the frequencies, in order
+# sorted_dict 
+for key in sorted(index_dictionary.keys()):
+    print "%r: %r" % (key, sorted(index_dictionary[key]))
+
+#sorted_dict = sorted(index_dictionary)
+#print sorted_dict
 
 #sorted_key = key.sort()
 #print sorted_key
