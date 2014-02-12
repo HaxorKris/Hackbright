@@ -52,7 +52,17 @@ based off an original text."""
     print first_tuple[0]
     print first_tuple[1]
 
+    print word1
+    print word2
+
     # build the list: the first two items are the first tuple
+
+    word1, word2 = word2, next_word
+
+    print word1
+    print word2
+    print next_word
+
 
     for i in range(10):
         next_word = random.choice(dictionary[word1, word2])
