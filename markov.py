@@ -73,7 +73,7 @@ based off an original text."""
 
     output_string = " ".join(output_list)
     
-    output_string[0] = output_string[0].lower()
+    output_string = output_string[0].upper() + output_string[1:]
 
     print output_string
     return output_string
