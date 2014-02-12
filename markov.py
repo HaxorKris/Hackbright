@@ -59,8 +59,8 @@ based off an original text."""
     output_list = [word1, word2]
     print output_list
 
-    for i in range(10):
-        next_word = random.choice(dictionary[word1, word2])
+    for i in range(20):
+        next_word = random.choice(chains[(word1, word2)])
         word1, word2 = word2, next_word
 
         print word1
@@ -71,21 +71,14 @@ based off an original text."""
 
         print output_list
 
-# append each word to a list
-
-# newword = random.choice(table[(w1, w2)])
-# print newword;
-# w1, w2 = w2, newword
+    output_string = " ".join(output_list)
     
-# for (word1, word2) in dictionary
+    output_string[0] = output_string[0].lower()
 
+    print output_string
+    return output_string
 
-    # word1, word2 = word2, next_word
-
-    # print word1
-    # print word2
-    # print next_word
-
+# join outside of for loop
 
 # return "Here's some random text."
 
