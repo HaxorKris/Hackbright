@@ -129,34 +129,44 @@ def custom_insert(input_list, index, value):
     input_list.insert(index, value)
     """
     input_list[index:index] = [value]  # had to wrap 
-
-## 7 failures left ##    
+    
 
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    item_to_delete == -1
+    item_to_delete = -1
     for i in range(len(input_list)):
         if item_to_delete == -1:
             if input_list[i] == value:
                 item_to_delete = i
     if item_to_delete == -1:
-        # return an error if there are no matches
+        print "no matches found"
     else:
         del input_list[item_to_delete]
 
-    # return an error if no value
+## 6 failures left ##
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
-    pass
+    last_item = input_list[-1]
+    del input_list[len(input_list)-1]
+    return last_item
+    # returning a value ends the function
 
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
-    pass
+    for i in range(len(input_list)):
+        if input_list[i] == value:
+            return i
+        else:
+            i += 1
 
 def custom_count(input_list, value):
     """custom_count(input_list, value) imitates input_list.count(value)"""
-    pass
+    counter = 0
+    for i in range(len(input_list)):
+        if input_list[i] == value:
+            counter += 1
+        return counter
 
 def custom_reverse(input_list):
     """custom_reverse(input_list) imitates input_list.reverse()"""
