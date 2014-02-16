@@ -132,17 +132,19 @@ def custom_insert(input_list, index, value):
 
 ## 7 failures left ##    
 
-#def custom_remove(input_list, value):
-#   """custom_remove(input_list, value) imitates input_list.remove(value)"""
-#    rm_counter = 0
-#    if input_list[rm_counter] == value
-#        del input_list[rm_counter]
-#        # and find a way to quit
-#    else rm_counter += 1
-
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
-    pass
+    item_to_delete == -1
+    for i in range(len(input_list)):
+        if item_to_delete == -1:
+            if input_list[i] == value:
+                item_to_delete = i
+    if item_to_delete == -1:
+        # return an error if there are no matches
+    else:
+        del input_list[item_to_delete]
+
+    # return an error if no value
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
