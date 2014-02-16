@@ -166,11 +166,11 @@ def custom_count(input_list, value):
     for i in range(len(input_list)):
         if input_list[i] == value:
             counter += 1
-        return counter
+    return counter
 
 def custom_reverse(input_list):
     """custom_reverse(input_list) imitates input_list.reverse()"""
-    pass
+    
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
