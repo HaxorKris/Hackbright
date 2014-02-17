@@ -170,14 +170,23 @@ def custom_count(input_list, value):
 
 def custom_reverse(input_list):
     """custom_reverse(input_list) imitates input_list.reverse()"""
-    
+    input_list[:] = input_list[::-1]
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
-    pass
+    for i in range(len(input_list)):
+        if input_list[i] == value:
+            return True
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
     (some_list == another_list)
     """
-    pass
+    if len(some_list) == len(another_list):
+        for i in range(len(some_list)):
+            if some_list[i] != another_list[i]:
+                return False
+
+
+
+
