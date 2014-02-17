@@ -10,4 +10,5 @@ for char in file_lowercase:
 	if char.isalpha():
 		running_total[ord(char)-97] += 1
 
-print running_total
+for i in running_total:
+	print i
