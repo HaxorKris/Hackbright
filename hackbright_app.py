@@ -11,10 +11,32 @@ def get_student_by_github(github):
 Student: %s %s
 Github account: %s"""%(row[0], row[1], row[2])
 
+def make_new_student(first_name,last_name,github):
+    query = """INSERT INTO Students values (?, ?, ?)"""
+    DB.execute(query, (first_name, last_name, github))
+    CONN.commit()
+    print "Successfully added student: %s %s"%(first_name, last_name)
+
 def connect_to_db():
     global DB, CONN
     CONN = sqlite3.connect("hackbright.db")
     DB = CONN.cursor()
+
+def get_project_by_title(title):
+    query = """SELECT title, description, max_grade from Projects WHERE title = ?"""
+    DB.execute(query, (title,))
+    row = DB.fetchone()
+    print """\
+Project: %s 
+Project description: %s
+Max grade: %s """%(row[0], row[1], row[2])
+
+def make_new_project(title, description, max_grade):
+    query = """INSERT INTO Projects values (NULL, ?, ?, ?)"""
+    DB.execute(query, (title, description, max_grade))
+    CONN.commit()
+    print "Successfully added project: %s %s"%(title, description)
+
 
 def main():
     connect_to_db()
@@ -29,6 +51,10 @@ def main():
             get_student_by_github(*args) 
         elif command == "new_student":
             make_new_student(*args)
+        elif command == "get_project":
+            get_project_by_title(*args)
+        elif command == "new_project":
+            make_new_project(*args)
 
     CONN.close()
 
