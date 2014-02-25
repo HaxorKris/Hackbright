@@ -39,6 +39,19 @@ def get_grades_byproject():
     html = render_template("project_grades.html", rows=rows)
     return html
 
+@app.route("/new_student")
+def add_new_student():
+    html = render_template("add_student.html")
+    return html
+
+@app.route("/create_student_record")
+def create_student():
+    hackbright_app.connect_to_db()
+    first_name=request.args.get("name")
+    last_name=request.args.get("surname")
+    github=request.args.get("github")
+    hackbright_app.make_new_student(first_name,last_name,github)
+
 @app.route("/")
 def get_github():
     return render_template("get_github.html")
