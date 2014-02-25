@@ -18,6 +18,19 @@ def get_student():
                                 last_name=row[1], github=row[2])
     return html
 
+@app.route("/get_student")
+def get_student_grades():
+    hackbright_app.connect_to_db()
+    student_github = request.args.get("github")
+    row = hackbright_app.get_grades_by_student(student_github)
+    html = ""
+    for item in row:
+        html = html + render_template("get_grades.html", github=item[0],
+                                        project=item[1], grade=item[2])
+
+    return html
+    
+
 @app.route("/")
 def get_github():
     return render_template("get_github.html")

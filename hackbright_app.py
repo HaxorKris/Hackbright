@@ -57,9 +57,9 @@ def get_grades_by_student(student_github):
     DB.execute(query, (student_github,))
     print "Github / Project / Grade"
     row = DB.fetchall()
-#    print row
-    for item in row:
-        print """%s / %s / %s"""% (item[0], item[1], item[2])
+    return row
+    # for item in row:
+    #     print """%s / %s / %s"""% (item[0], item[1], item[2])
 
     # print """\
     # Github / Project / Grade
