@@ -22,14 +22,15 @@ def get_student():
 def get_student_grades():
     hackbright_app.connect_to_db()
     student_github = request.args.get("github")
-    row = hackbright_app.get_grades_by_student(student_github)
-    html = ""
-    for item in row:
-        html = html + render_template("get_grades.html", github=item[0],
-                                        project=item[1], grade=item[2])
+    rows = hackbright_app.get_grades_by_student(student_github)
 
+    # html = ""
+    # for item in rows:
+    #     html = html + render_template("get_grades.html", github=item[0],
+    #                                     project=item[1], grade=item[2])
+    html = render_template("get_grades.html", rows=rows)
     return html
-    
+
 
 @app.route("/")
 def get_github():

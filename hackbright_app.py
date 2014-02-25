@@ -51,6 +51,15 @@ def get_grade_by_student_project(student_github, project_title):
     Project: %s
     Grade: %s """%(row[0], row[1], row[2], row[3])
 
+def get_grades_by_project(project_title):
+    query = """SELECT Students.first_name, Students.last_name, Grades.project_title, Grades.grade 
+        FROM Grades JOIN Projects ON (Grades.project_title = Projects.title)
+        JOIN Students ON (Students.github = Grades.student_github)
+        WHERE project_title = ?"""
+    DB.execute(query, (project_title))
+    row = DB.fetchall()
+    print row
+    return row
 
 def get_grades_by_student(student_github):
     query = """select * from Grades where student_github = ? """
@@ -99,6 +108,8 @@ def main():
             give_grade(*args)
         elif command == "get_grades":
             get_grades_by_student(*args)
+        elif command == "get_grades_new":
+            get_grades_by_project(*args)
 
     CONN.close()
 
