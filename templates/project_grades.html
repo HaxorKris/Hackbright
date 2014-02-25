@@ -1,0 +1,21 @@
+<html>
+    <style>
+    body{
+        background-color: #ccc;
+    }
+    h1 {
+        color: #7F75EF;
+    }
+    </style>
+    <body>
+        <h1>Project: {{rows[0][2]}}</h1>
+        <h2> Github  /  Student  /  Grade</h2>        
+        <ul>
+        {% for row in rows %}
+
+            <li> <a href=/get_student?github={{row[4]}}> {{row[4]}} </a>  /   {{row[1]}}, {{row[0]}}   /   {{row[3]}}
+        {% endfor %}
+        </ul>
+    
+    </body>
+</html>
