@@ -31,6 +31,13 @@ def get_student_grades():
     html = render_template("get_grades.html", rows=rows)
     return html
 
+@app.route("/project_grades")
+def get_grades_byproject():
+    hackbright_app.connect_to_db()
+    project = request.args.get("project")
+    rows = hackbright_app.get_grades_by_project(project)
+    html = render_template("project_grades.html", rows=rows)
+    return html
 
 @app.route("/")
 def get_github():

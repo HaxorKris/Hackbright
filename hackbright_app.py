@@ -56,10 +56,9 @@ def get_grades_by_project(project_title):
         FROM Grades JOIN Projects ON (Grades.project_title = Projects.title)
         JOIN Students ON (Students.github = Grades.student_github)
         WHERE project_title = ?"""
-    DB.execute(query, (project_title))
-    row = DB.fetchall()
-    print row
-    return row
+    DB.execute(query, (project_title,))
+    rows = DB.fetchall()
+    return rows
 
 def get_grades_by_student(student_github):
     query = """select * from Grades where student_github = ? """
