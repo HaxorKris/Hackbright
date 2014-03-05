@@ -63,11 +63,28 @@ def incomingSms():
     return Response(str(response), mimetype='text/xml')
 
 # generate twiML for incoming call
-# 
-@app.route('/incoming/call')
+@app.route('/incoming/call', methods=["GET"])
 def incomingCall():
     response = twiml.Response()
-    response.say("Welcome to McDonalds, may I have your innocence?", voice='woman')
+    with response.gather(numDigits=1) as g:
+        g.say("Welcome to McDonalds, may I have your innocence? Press One for yes, press two for yes.", voice='woman')
+    return Response(str(response), mimetype='text/xml')
+# 
+@app.route('/incoming/call', methods=['POST'])
+def redirectCall():
+    #if digit is 1 say something
+    response = twiml.Response()
+    digit = int(request.form["Digits"])
+    if digit == 2:
+        response.say("Tastes like chicken.", voice='woman')
+    elif digit == 1:
+        response.say("Yum Yum Yum, do you have ketchup?", voice='woman')
+    else:
+        response.say("I WILL TAKE YOUR SOUL CAUSE YOU CANNOT FOLLOW INSTRUCTIONS!!!!", voice='alice')
+
+    #else say somehting else
+    response = twiml.Response()
+
     return Response(str(response), mimetype='text/xml')
 
 if __name__ == '__main__':
